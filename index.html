@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sınav Optik Uygulaması</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Sınav Optik Uygulaması</h1>
+      <p>PDF yükle, optik doldur, süre tut ve sonuçlarını analiz et.</p>
+    </header>
+
+    <main class="layout">
+      <section class="panel pdf-panel">
+        <h2>PDF + Kalem Alanı</h2>
+        <div class="toolbar">
+          <label class="file-label">
+            PDF Yükle
+            <input id="pdfInput" type="file" accept="application/pdf" />
+          </label>
+
+          <div class="tool-group">
+            <label for="toolSelect">Araç</label>
+            <select id="toolSelect">
+              <option value="pen">Kalem</option>
+              <option value="highlighter">Fosforlu Kalem</option>
+              <option value="eraser">Silgi</option>
+            </select>
+          </div>
+
+          <div class="tool-group">
+            <label for="colorSelect">Renk</label>
+            <select id="colorSelect">
+              <option value="#000000">Siyah</option>
+              <option value="#0057ff">Mavi</option>
+              <option value="#d00000">Kırmızı</option>
+            </select>
+          </div>
+
+          <button id="clearDrawing" type="button">Çizimleri Temizle</button>
+        </div>
+
+        <div class="pdf-canvas-wrap" id="pdfWrap">
+          <iframe id="pdfFrame" title="Yüklenen PDF"></iframe>
+          <canvas id="drawCanvas"></canvas>
+        </div>
+      </section>
+
+      <section class="panel side-panel">
+        <h2>Optik Form</h2>
+        <div class="optical-controls">
+          <label>
+            Soru Sayısı
+            <input id="questionCount" type="number" min="1" max="200" value="20" />
+          </label>
+          <button id="buildOptic" type="button">Optiği Oluştur</button>
+          <button id="finishExam" class="primary" type="button">Sınavı Bitir</button>
+        </div>
+
+        <div id="resultBox" class="result-box hidden"></div>
+        <div id="opticGrid" class="optic-grid"></div>
+      </section>
+
+      <section class="panel notes-panel">
+        <h2>Not Alanı</h2>
+        <p>Kaç soru yaptığın, yanlış sayın, bitirdiğin konular gibi notlarını yaz.</p>
+        <textarea id="notesArea" rows="10" placeholder="Örnek: 20 soruda 16 doğru, 3 yanlış, 1 boş. Konu: Fonksiyonlar bitti."></textarea>
+      </section>
+
+      <section class="panel timer-panel">
+        <h2>Süre Sayacı</h2>
+        <div class="timer-display" id="timerDisplay">00:00:00</div>
+        <div class="timer-actions">
+          <button id="startTimer" type="button">Başlat</button>
+          <button id="stopTimer" type="button">Durdur</button>
+          <button id="resetTimer" type="button">Sıfırla</button>
+        </div>
+      </section>
+
+      <section class="panel videos-panel">
+        <h2>Video Linkleri</h2>
+        <div class="video-input-row">
+          <input id="videoUrl" type="url" placeholder="https://..." />
+          <button id="addVideo" type="button">Ekle</button>
+        </div>
+        <ul id="videoList" class="video-list"></ul>
+      </section>
+    </main>
+
+    <template id="questionTemplate">
+      <div class="question-row">
+        <div class="question-number"></div>
+        <div class="bubble-group user-group" data-type="user"></div>
+        <div class="bubble-group answer-group" data-type="answer"></div>
+      </div>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
