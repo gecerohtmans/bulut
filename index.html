@@ -46,6 +46,21 @@
           <iframe id="pdfFrame" title="Yüklenen PDF"></iframe>
           <canvas id="drawCanvas"></canvas>
         </div>
+
+        <div class="notes-toggle-area">
+          <button id="toggleNotes" class="primary" type="button">Not Alanını Aç / Kapat</button>
+        </div>
+
+        <section id="notesPanel" class="notes-inline hidden">
+          <h3>Geniş Not Alanı</h3>
+          <div class="notes-stats">
+            <label>
+              Kaç Soru Çözdün?
+              <input id="solvedCount" type="number" min="0" placeholder="Örn: 120" />
+            </label>
+          </div>
+          <textarea id="notesArea" rows="14" placeholder="Buraya kaç soru çözdüm, kaç doğru, kaç yanlış, hangi konuları bitirdim gibi notlarını yaz."></textarea>
+        </section>
       </section>
 
       <section class="panel side-panel">
@@ -61,12 +76,6 @@
 
         <div id="resultBox" class="result-box hidden"></div>
         <div id="opticGrid" class="optic-grid"></div>
-      </section>
-
-      <section class="panel notes-panel">
-        <h2>Not Alanı</h2>
-        <p>Kaç soru yaptığın, yanlış sayın, bitirdiğin konular gibi notlarını yaz.</p>
-        <textarea id="notesArea" rows="10" placeholder="Örnek: 20 soruda 16 doğru, 3 yanlış, 1 boş. Konu: Fonksiyonlar bitti."></textarea>
       </section>
 
       <section class="panel timer-panel">

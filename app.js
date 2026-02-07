@@ -23,6 +23,8 @@ const resetTimer = document.getElementById("resetTimer");
 const videoUrl = document.getElementById("videoUrl");
 const addVideo = document.getElementById("addVideo");
 const videoList = document.getElementById("videoList");
+const toggleNotes = document.getElementById("toggleNotes");
+const notesPanel = document.getElementById("notesPanel");
 
 let questionCount = Number(questionCountInput.value);
 let userSelections = Array(questionCount).fill("");
@@ -236,4 +238,9 @@ addVideo.addEventListener("click", () => {
   li.appendChild(link);
   videoList.appendChild(li);
   videoUrl.value = "";
+});
+
+// Notes toggle
+toggleNotes.addEventListener("click", () => {
+  notesPanel.classList.toggle("hidden");
 });

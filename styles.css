@@ -163,8 +163,37 @@ button.primary {
 
 .hidden { display: none; }
 
-.notes-panel textarea {
+.notes-toggle-area {
+  margin-top: 12px;
+}
+
+.notes-inline {
+  margin-top: 10px;
+  border: 1px solid #9db3f8;
+  border-radius: 8px;
+  background: #f4f7ff;
+  padding: 12px;
+}
+
+.notes-inline h3 {
+  margin: 0 0 10px;
+  color: #0d2a78;
+}
+
+.notes-stats {
+  margin-bottom: 10px;
+}
+
+.notes-stats label {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.notes-inline textarea {
   width: 100%;
+  min-height: 260px;
   resize: vertical;
 }
 
